@@ -7,7 +7,7 @@ import GlobalStyles from '../src/styles/globalStyles'
 const GlobalWrapper = story => (
   <ThemeProvider theme={themeDefault}>
     <GlobalStyles />
-    {story}
+    {story()}
   </ThemeProvider>
 )
 

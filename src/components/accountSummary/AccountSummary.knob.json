@@ -1,0 +1,27 @@
+{
+  "sectionTitle": {
+    "label": "Section Title",
+    "default": "Accounts",
+    "group": "Text"
+  },
+  "cashText": {
+    "label": "Cash Text",
+    "default": "Cash",
+    "group": "Text"
+  },
+  "debtText": {
+    "label": "Debt Text",
+    "default": "Debt",
+    "group": "Text"
+  },
+  "cashNumber": {
+    "label": "Cash Number",
+    "default": "16,854",
+    "group": "Text"
+  },
+  "debtNumber": {
+    "label": "Debt Number",
+    "default": "3,250",
+    "group": "Text"
+  }
+}

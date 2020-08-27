@@ -5,7 +5,6 @@ const GlobalStyle = createGlobalStyle`
    v2.0-modified | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,7 +22,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+  font-family: 'Alata', sans-serif;
 	vertical-align: baseline;
 }
 
