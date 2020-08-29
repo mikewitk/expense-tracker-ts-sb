@@ -20,29 +20,48 @@ export interface BudgetSummaryProps {
   currentValue?: number
 }
 
+interface StyledProps {
+  value: number
+  selectBG: () => number
+}
+
 export const BudgetSummary: React.FC<BudgetSummaryProps> = ({
   sectionTitle = 'Budget',
-  month = '',
+  month = 'january',
   maxValue = 1,
   currentValue = 0,
 }) => {
-  const value = (currentValue / maxValue) * 100
+  const value = currentValue / maxValue
 
   return (
-    <StyledContainer>
+    <StyledContainer value={value}>
       <div>
         <h4>{sectionTitle}</h4>
         <p>{month}</p>
       </div>
-      {/* <progress max='1' value={value} /> */}
       <div className='meter'>
-        <span style={{ width: `${value}%` }}></span>
+        <span></span>
       </div>
     </StyledContainer>
   )
 }
 
-const StyledContainer = styled.div`
+const selectBG = (val: number) => {
+  switch (true) {
+    case val < 0.2:
+      return '#75e8e7'
+    case val < 0.4:
+      return '#ddacf5'
+    case val < 0.6:
+      return '#9854cb'
+    case val < 0.8:
+      return '#64379f'
+    default:
+      return '#ff0000'
+  }
+}
+
+const StyledContainer = styled.div<StyledProps>`
   padding-bottom: 15px;
   border-bottom: 2px solid ${props => props.theme.grey100}66;
   div {
@@ -64,13 +83,6 @@ const StyledContainer = styled.div`
     color: ${props => props.theme.grey300};
   }
 
-  /* progress {
-    width: 100%;
-    height: 30px;
-    background-color: blue;
-    border-radius: 10px;
-  } */
-
   .meter {
     height: 20px; /* Can be anything */
     position: relative;
@@ -85,11 +97,12 @@ const StyledContainer = styled.div`
   .meter > span {
     display: block;
     height: 100%;
+    width: ${props => props.value * 100}%;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    background-color: ${props => props.theme.primary500};
+    background-color: ${props => selectBG(props.value)};
     background-image: linear-gradient(
       center bottom,
       rgb(43, 194, 83) 37%,

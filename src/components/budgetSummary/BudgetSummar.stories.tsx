@@ -11,7 +11,7 @@ export default {
         type: 'range',
         min: 0,
         max: 1,
-        step: 0.1,
+        step: 0.05,
       },
     },
   },
@@ -24,4 +24,14 @@ monthStart.args = {
   sectionTitle: 'Budget',
   month: 'january',
   currentValue: 0.3,
+}
+
+export const monthMiddle = Template.bind({})
+monthMiddle.args = {
+  currentValue: 0.6,
+}
+
+export const monthEnd = Template.bind({})
+monthEnd.args = {
+  currentValue: 0.9,
 }
