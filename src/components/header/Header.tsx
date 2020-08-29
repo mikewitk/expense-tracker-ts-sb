@@ -14,7 +14,6 @@ const Header = ({ children }) => {
 export default Header
 
 const StyledHeader = styled.div`
-  max-width: 400px;
   height: 30px;
   display: flex;
   align-items: center;

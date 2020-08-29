@@ -20,7 +20,7 @@ export const basicSummary = () => (
 )
 
 export default {
-  title: 'Summary/Account',
+  title: 'Component/Account',
   decorators: [withKnobs],
   component: AccountSummary,
 }
