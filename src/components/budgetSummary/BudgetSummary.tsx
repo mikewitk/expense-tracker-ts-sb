@@ -58,7 +58,6 @@ export const BudgetSummary: React.FC<BudgetSummaryProps> = ({
 
 interface StyledProps {
   value: number
-  selectBG: () => number
 }
 
 const StyledContainer = styled.div<StyledProps>`

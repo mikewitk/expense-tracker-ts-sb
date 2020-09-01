@@ -41,8 +41,8 @@ export const CashFlow: React.FC<CashFlowProps> = ({
         </div>
         <div className='values'>
           <div>
-            <p>${earnedVal} Earned</p>
-            <p>-${spentVal} Spent</p>
+            <p>${earnedVal} earned</p>
+            <p>-${spentVal} spent</p>
           </div>
           <p className='net-value'>{netValue(earnedVal, spentVal)}</p>
         </div>
@@ -51,7 +51,17 @@ export const CashFlow: React.FC<CashFlowProps> = ({
   )
 }
 
-const StyledCashFlow = styled.div`
+interface StyledProps {
+  netValue: number
+  earnedWidth: number
+  spentWidth: number
+}
+
+const StyledCashFlow = styled.div<StyledProps>`
+  h4 {
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
   .section {
     display: flex;
     align-items: center;
@@ -60,6 +70,7 @@ const StyledCashFlow = styled.div`
 
   .graphs {
     width: 80px;
+    margin-right: 16px;
   }
 
   .meter {
@@ -73,13 +84,13 @@ const StyledCashFlow = styled.div`
   }
 
   .earned {
-    background-color: ${props => props.theme.primary800};
-    width: ${props => props.spentWidth}%;
+    background-color: ${props => props.theme.primary500};
+    width: ${props => props.earnedWidth}%;
   }
 
   .spent {
-    background-color: red;
-    width: ${props => props.earnedWidth}%;
+    background-color: ${props => props.theme.red};
+    width: ${props => props.spentWidth}%;
   }
 
   .values {
@@ -91,6 +102,7 @@ const StyledCashFlow = styled.div`
       margin: 8px 0;
       color: ${props => props.theme.grey300};
       font-size: 15px;
+      text-transform: capitalize;
     }
   }
 

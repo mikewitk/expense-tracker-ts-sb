@@ -35,6 +35,7 @@ const themeDefault = {
   primary900: '#170C41',
   secondary: '#3788A1',
   tertiary: '#2ECDBA',
+  red: '#d72323',
 }
 
 export default themeDefault
