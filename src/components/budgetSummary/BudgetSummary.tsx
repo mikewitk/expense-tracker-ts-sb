@@ -20,9 +20,19 @@ export interface BudgetSummaryProps {
   currentValue?: number
 }
 
-interface StyledProps {
-  value: number
-  selectBG: () => number
+const selectBG = (val: number) => {
+  switch (true) {
+    case val < 0.2:
+      return '#75e8e7'
+    case val < 0.4:
+      return '#ddacf5'
+    case val < 0.6:
+      return '#9854cb'
+    case val < 0.8:
+      return '#64379f'
+    default:
+      return '#ff0000'
+  }
 }
 
 export const BudgetSummary: React.FC<BudgetSummaryProps> = ({
@@ -46,19 +56,9 @@ export const BudgetSummary: React.FC<BudgetSummaryProps> = ({
   )
 }
 
-const selectBG = (val: number) => {
-  switch (true) {
-    case val < 0.2:
-      return '#75e8e7'
-    case val < 0.4:
-      return '#ddacf5'
-    case val < 0.6:
-      return '#9854cb'
-    case val < 0.8:
-      return '#64379f'
-    default:
-      return '#ff0000'
-  }
+interface StyledProps {
+  value: number
+  selectBG: () => number
 }
 
 const StyledContainer = styled.div<StyledProps>`
